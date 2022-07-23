@@ -9,12 +9,5 @@ namespace CustomerOrdersAPI.Models.Base.Request
         public int ResultStatusCode { get; set; }
 
         public string ErrorDescription { get; set; }
-
-        public object Request { get;}
-
-        public ServiceRequestBaseModel(object requestOutput)
-        {
-            Request = requestOutput;
-        }
     }
 }

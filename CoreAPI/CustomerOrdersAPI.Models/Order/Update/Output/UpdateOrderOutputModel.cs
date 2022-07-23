@@ -1,10 +1,12 @@
-﻿using System;
+﻿using CustomerOrdersAPI.Models.Base.Request;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CustomerOrdersAPI.Models.Order.Update.Output
 {
-    class UpdateOrderOutputModel
+    public class UpdateOrderOutputModel : ServiceRequestBaseModel
     {
+
     }
 }

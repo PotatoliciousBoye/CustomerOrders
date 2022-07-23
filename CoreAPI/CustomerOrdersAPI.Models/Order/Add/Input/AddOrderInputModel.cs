@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CustomerOrdersAPI.Models.Order.Add.Input
 {
-    class AddOrderInputModel
+    public class AddOrderInputModel
     {
     }
 }

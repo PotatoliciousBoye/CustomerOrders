@@ -4,5 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerOrdersAPI.Library\CustomerOrdersAPI.Library.csproj" />
+    <ProjectReference Include="..\CustomerOrdersAPI.Models\CustomerOrdersAPI.Models.csproj" />
+  </ItemGroup>
+
 
 </Project>
