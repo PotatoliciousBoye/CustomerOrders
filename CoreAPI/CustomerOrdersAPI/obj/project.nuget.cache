@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W+bZ5DRZb50/R5T7u+dIHx8TrZAYWeigmzT4R/lDB/KddSQnDhwboBrOj8SkrRyiD6exkhecgy8Ta7uUggE8vQ==",
+  "dgSpecHash": "aIgx23efff33yGOPrwuMHvBoPG/RsUTs9/Iu71NwyXt4ZyJLDHY4vHQRpp1vdpC7Df/ijWs/UuRgXQ9F0T+oiQ==",
   "success": true,
   "projectFilePath": "D:\\GitRep\\CustomerOrders\\CoreAPI\\CustomerOrdersAPI\\CustomerOrdersAPI.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\yagiz\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-    "C:\\Users\\yagiz\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\yagiz\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
-    "C:\\Users\\yagiz\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
-    "C:\\Users\\yagiz\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
-    "C:\\Users\\yagiz\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
