@@ -1,23 +1,11 @@
-﻿using System;
-
-namespace CustomerOrdersAPI.EntityFramework.Models
+﻿namespace CustomerOrdersAPI.Models.Order
 {
     /// <summary>
-    /// Defines the <see cref="Order" />.
+    /// Defines the <see cref="OrderViewModel" />.
     /// </summary>
-    public class Order
+    public class OrderViewModel
     {
         #region Properties
-
-        /// <summary>
-        /// Gets or sets the CreateDate.
-        /// </summary>
-        public DateTime CreateDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the CreatedBy.
-        /// </summary>
-        public string CreatedBy { get; set; }
 
         /// <summary>
         /// Gets or sets the CustomerOrderId.
@@ -45,11 +33,6 @@ namespace CustomerOrdersAPI.EntityFramework.Models
         public string Note { get; set; }
 
         /// <summary>
-        /// Gets or sets the OrderId.
-        /// </summary>
-        public int OrderId { get; set; }
-
-        /// <summary>
         /// Gets or sets the OrderStatusId.
         /// </summary>
         public int OrderStatusId { get; set; }
@@ -68,16 +51,6 @@ namespace CustomerOrdersAPI.EntityFramework.Models
         /// Gets or sets the TotalWeight.
         /// </summary>
         public int TotalWeight { get; set; }
-
-        /// <summary>
-        /// Gets or sets the UpdateDate.
-        /// </summary>
-        public DateTime? UpdateDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the UpdatedBy.
-        /// </summary>
-        public string UpdatedBy { get; set; }
 
         /// <summary>
         /// Gets or sets the WeightUnit.

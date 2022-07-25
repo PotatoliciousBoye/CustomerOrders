@@ -1,21 +1,50 @@
 ﻿using CustomerOrdersAPI.EntityFramework.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CustomerOrdersAPI.EntityFramework
 {
+    /// <summary>
+    /// Defines the <see cref="CustomerOrdersDbContext" />.
+    /// </summary>
     public class CustomerOrdersDbContext : DbContext
     {
-        public DbSet<Material> Materials { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderStatus> OrderStatuses { get; set; }
+        #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomerOrdersDbContext"/> class.
+        /// </summary>
+        /// <param name="options">The options<see cref="DbContextOptions{CustomerOrdersDbContext}"/>.</param>
         public CustomerOrdersDbContext(DbContextOptions<CustomerOrdersDbContext> options) : base(options)
         {
         }
 
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Gets or sets the Materials.
+        /// </summary>
+        public DbSet<Material> Materials { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Orders.
+        /// </summary>
+        public DbSet<Order> Orders { get; set; }
+
+        /// <summary>
+        /// Gets or sets the OrderStatuses.
+        /// </summary>
+        public DbSet<OrderStatus> OrderStatuses { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// The OnModelCreating.
+        /// </summary>
+        /// <param name="modelBuilder">The modelBuilder<see cref="ModelBuilder"/>.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Material>().ToTable("tblMaterial");
@@ -56,5 +85,7 @@ namespace CustomerOrdersAPI.EntityFramework
             modelBuilder.Entity<Order>().Property(order => order.UpdatedBy).HasColumnType("varchar(50)");
             modelBuilder.Entity<Order>().Property(order => order.UpdateDate).HasColumnType("datetime");
         }
+
+        #endregion
     }
 }

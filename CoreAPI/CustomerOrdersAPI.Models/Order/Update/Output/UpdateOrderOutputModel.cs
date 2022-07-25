@@ -1,12 +1,11 @@
 ﻿using CustomerOrdersAPI.Models.Base.Request;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CustomerOrdersAPI.Models.Order.Update.Output
 {
+    /// <summary>
+    /// Defines the <see cref="UpdateOrderOutputModel" />.
+    /// </summary>
     public class UpdateOrderOutputModel : ServiceRequestBaseModel
     {
-
     }
 }

@@ -1,21 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CustomerOrdersAPI.EntityFramework.Models
 {
+    /// <summary>
+    /// Defines the <see cref="Material" />.
+    /// </summary>
     public class Material
     {
-        public string MaterialId { get; set; }
+        #region Properties
 
-        public string MaterialName { get; set; }
-
-        public string CreatedBy { get; set; }
-
+        /// <summary>
+        /// Gets or sets the CreateDate.
+        /// </summary>
         public DateTime CreateDate { get; set; }
 
+        /// <summary>
+        /// Gets or sets the CreatedBy.
+        /// </summary>
+        public string CreatedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets the MaterialId.
+        /// </summary>
+        public string MaterialId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the MaterialName.
+        /// </summary>
+        public string MaterialName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the UpdateDate.
+        /// </summary>
+        public DateTime? UpdateDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the UpdatedBy.
+        /// </summary>
         public string UpdatedBy { get; set; }
 
-        public DateTime? UpdateDate { get; set; }
+        #endregion
     }
 }
