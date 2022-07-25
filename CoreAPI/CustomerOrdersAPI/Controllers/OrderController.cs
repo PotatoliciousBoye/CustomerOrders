@@ -1,4 +1,6 @@
-﻿using CustomerOrdersAPI.Models.Order.Add.Input;
+﻿using CustomerOrdersAPI.EntityFramework;
+using CustomerOrdersAPI.EntityFramework.Models;
+using CustomerOrdersAPI.Models.Order.Add.Input;
 using CustomerOrdersAPI.Models.Order.Add.Output;
 using CustomerOrdersAPI.Models.Order.Get.Input;
 using CustomerOrdersAPI.Models.Order.Get.Output;
@@ -13,9 +15,22 @@ using System.Threading.Tasks;
 namespace CustomerOrdersAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class OrderController : ControllerBase
     {
+
+        private CustomerOrdersDbContext customerOrdersDbContext;
+
+        public OrderController(CustomerOrdersDbContext customerOrdersDbContext)
+        {
+            this.customerOrdersDbContext = customerOrdersDbContext; 
+        }
+
+        [HttpGet]
+        public IList<OrderStatus> Get()
+        {
+            return (this.customerOrdersDbContext.OrderStatuses.ToList());
+        }
 
         public AddOrderOutputModel AddOrder(AddOrderInputModel addOrderInput)
         {

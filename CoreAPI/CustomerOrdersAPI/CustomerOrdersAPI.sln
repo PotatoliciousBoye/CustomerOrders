@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerOrdersAPI", "CustomerOrdersAPI.csproj", "{B6FDB341-8123-40F5-B245-CDEBD2771B5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerOrdersAPI", "CustomerOrdersAPI.csproj", "{B6FDB341-8123-40F5-B245-CDEBD2771B5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerOrdersAPI.Models", "..\CustomerOrdersAPI.Models\CustomerOrdersAPI.Models.csproj", "{AC0D38F0-F3D3-4C89-AF1A-FB2AE903E741}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerOrdersAPI.Models", "..\CustomerOrdersAPI.Models\CustomerOrdersAPI.Models.csproj", "{AC0D38F0-F3D3-4C89-AF1A-FB2AE903E741}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerOrdersAPI.Library", "..\CustomerOrdersAPI.Library\CustomerOrdersAPI.Library.csproj", "{F0BA455B-5C9A-4E10-A7E6-0B3E3CB1336A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerOrdersAPI.Library", "..\CustomerOrdersAPI.Library\CustomerOrdersAPI.Library.csproj", "{F0BA455B-5C9A-4E10-A7E6-0B3E3CB1336A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerOrdersAPI.EntityFramework", "..\CustomerOrdersAPI.EntityFramework\CustomerOrdersAPI.EntityFramework.csproj", "{A80ECB60-8E8A-4C91-9514-9EEFC788A21B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F0BA455B-5C9A-4E10-A7E6-0B3E3CB1336A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0BA455B-5C9A-4E10-A7E6-0B3E3CB1336A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0BA455B-5C9A-4E10-A7E6-0B3E3CB1336A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80ECB60-8E8A-4C91-9514-9EEFC788A21B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80ECB60-8E8A-4C91-9514-9EEFC788A21B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80ECB60-8E8A-4C91-9514-9EEFC788A21B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80ECB60-8E8A-4C91-9514-9EEFC788A21B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

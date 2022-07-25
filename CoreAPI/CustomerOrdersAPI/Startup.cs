@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using CustomerOrdersAPI.EntityFramework;
 
 namespace CustomerOrdersAPI
 {
@@ -25,6 +27,10 @@ namespace CustomerOrdersAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            string sqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContextPool<CustomerOrdersDbContext>(options => options.UseSqlServer(sqlConnectionStr));
+
             services.AddControllers();
         }
 
