@@ -27,3 +27,11 @@ Postman example images (endpoint examples are included in the PostmanExampleColl
 ![image of GetOrderStatus](https://puu.sh/Jd3AM/77ce28bcf4.png)
 
 ![image of UpdateOrder](https://puu.sh/Jd3AP/1c452c4985.png)
+
+Queue endpoints:
+
+![image of AddOrderAsync](https://puu.sh/Jd3Rb/5dce012388.png)
+
+![image of UpdateOrderAsync](https://puu.sh/Jd3RK/f8a3e23309.png)
+
+![RabbitMq queue display](https://puu.sh/Jd3RV/1a95f29398.png)
