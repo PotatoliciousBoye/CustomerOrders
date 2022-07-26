@@ -33,6 +33,9 @@ namespace CustomerOrdersAPI.Controllers
         /// </summary>
         private IOrderLibrary orderLibrary;
 
+        /// <summary>
+        /// Defines the orderQueueLibrary.
+        /// </summary>
         private IOrderQueueLibrary orderQueueLibrary;
 
         #endregion
@@ -44,6 +47,7 @@ namespace CustomerOrdersAPI.Controllers
         /// </summary>
         /// <param name="customerOrdersDbContext">The customerOrdersDbContext<see cref="CustomerOrdersDbContext"/>.</param>
         /// <param name="orderLibrary">The orderLibrary<see cref="IOrderLibrary"/>.</param>
+        /// <param name="orderQueueLibrary">The orderQueueLibrary<see cref="IOrderQueueLibrary"/>.</param>
         public OrderController(CustomerOrdersDbContext customerOrdersDbContext, IOrderLibrary orderLibrary, IOrderQueueLibrary orderQueueLibrary)
         {
             this.customerOrdersDbContext = customerOrdersDbContext;
@@ -83,7 +87,7 @@ namespace CustomerOrdersAPI.Controllers
         /// <param name="getAllOrdersInput">The getAllOrdersInput<see cref="GetAllOrdersInputModel"/>.</param>
         /// <returns>The <see cref="GetAllOrdersOutputModel"/>.</returns>
         [HttpGet("GetAllOrders")]
-        public GetAllOrdersOutputModel GetAllOrders([FromForm]GetAllOrdersInputModel getAllOrdersInput)
+        public GetAllOrdersOutputModel GetAllOrders([FromForm] GetAllOrdersInputModel getAllOrdersInput)
         {
             return orderLibrary.GetAllOrders(getAllOrdersInput);
         }
@@ -94,7 +98,7 @@ namespace CustomerOrdersAPI.Controllers
         /// <param name="getAllOrderStatusesInputModel">The getAllOrderStatusesInputModel<see cref="GetAllOrderStatusesInputModel"/>.</param>
         /// <returns>The <see cref="GetAllOrderStatusesOutputModel"/>.</returns>
         [HttpGet("GetAllOrderStatuses")]
-        public GetAllOrderStatusesOutputModel GetAllOrderStatuses([FromForm]GetAllOrderStatusesInputModel getAllOrderStatusesInputModel)
+        public GetAllOrderStatusesOutputModel GetAllOrderStatuses([FromForm] GetAllOrderStatusesInputModel getAllOrderStatusesInputModel)
         {
             return orderLibrary.GetAllOrderStatuses(getAllOrderStatusesInputModel);
         }

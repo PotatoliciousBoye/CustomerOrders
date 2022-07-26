@@ -6,7 +6,8 @@ namespace CustomerOrdersAPI.QueueConsumer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Todo Queue Consumer
+
         }
     }
 }

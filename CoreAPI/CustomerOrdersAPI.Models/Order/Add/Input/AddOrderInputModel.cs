@@ -9,6 +9,9 @@ namespace CustomerOrdersAPI.Models.Order.Add.Input
     {
         #region Properties
 
+        /// <summary>
+        /// Gets or sets the Orders.
+        /// </summary>
         public List<OrderInputModel> Orders { get; set; }
 
         #endregion

@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "c20bebbe-f98e-4832-bd9a-65f25c272086",
+		"name": "CustomerOrders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15662818"
+	},
+	"item": [
+		{
+			"name": "AddOrders",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "OrderAddingExample",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Orders\": [\r\n        {\r\n            \"CustomerOrderId\": \"AEK_999\",\r\n            \"OriginAddress\": \"İstanbul\",\r\n            \"DestinationAddress\": \"Eskişehir\",\r\n            \"MaterialId\": \"GFL_404\",\r\n            \"MaterialName\": \"Mekanik\",\r\n            \"Note\": \"Dikkatli taşınmalı.\",\r\n            \"MaterialQuantity\": 4,\r\n            \"QuantityUnit\": \"Birim\",\r\n            \"TotalWeight\": 27,\r\n            \"WeightUnit\": \"KG\"\r\n        },\r\n        {\r\n            \"CustomerOrderId\": \"YGZ_525\",\r\n            \"OriginAddress\": \"Ankara\",\r\n            \"DestinationAddress\": \"Diyarbakır\",\r\n            \"MaterialId\": \"DDS_548\",\r\n            \"MaterialName\": \"Metal Plaka\",\r\n            \"Note\": \"Keskin köşe\",\r\n            \"MaterialQuantity\": 4,\r\n            \"QuantityUnit\": \"Koli\",\r\n            \"TotalWeight\": 27,\r\n            \"WeightUnit\": \"KG\"\r\n        },\r\n        {\r\n            \"CustomerOrderId\": \"TTR_5429\",\r\n            \"OriginAddress\": \"Amsterdam\",\r\n            \"DestinationAddress\": \"İstanbul\",\r\n            \"MaterialId\": \"GMMK_PRO\",\r\n            \"MaterialName\": \"Klavye\",\r\n            \"Note\": \"Kırılma riski\",\r\n            \"MaterialQuantity\": 10,\r\n            \"QuantityUnit\": \"Birim\",\r\n            \"TotalWeight\": 1700,\r\n            \"WeightUnit\": \"G\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44322/api/Order/AddOrders",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Order",
+								"AddOrders"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Jul 2022 02:58:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"failedAdditions\": [],\n    \"succeededAdditions\": [\n        {\n            \"customerOrderId\": \"AEK_999\",\n            \"errorDescription\": null,\n            \"orderId\": 0\n        }\n    ],\n    \"errorDescription\": null,\n    \"resultStatusCode\": 0\n}"
+				},
+				{
+					"name": "MultipleAddingExample",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Orders\": [\r\n        {\r\n            \"CustomerOrderId\": \"AEK_999\",\r\n            \"OriginAddress\": \"İstanbul\",\r\n            \"DestinationAddress\": \"Eskişehir\",\r\n            \"MaterialId\": \"GFL_404\",\r\n            \"MaterialName\": \"Mekanik\",\r\n            \"Note\": \"Dikkatli taşınmalı.\",\r\n            \"MaterialQuantity\": 4,\r\n            \"QuantityUnit\": \"Birim\",\r\n            \"TotalWeight\": 27,\r\n            \"WeightUnit\": \"KG\"\r\n        },\r\n        {\r\n            \"CustomerOrderId\": \"YGZ_525\",\r\n            \"OriginAddress\": \"Ankara\",\r\n            \"DestinationAddress\": \"Diyarbakır\",\r\n            \"MaterialId\": \"DDS_548\",\r\n            \"MaterialName\": \"Metal Plaka\",\r\n            \"Note\": \"Keskin köşe\",\r\n            \"MaterialQuantity\": 4,\r\n            \"QuantityUnit\": \"Koli\",\r\n            \"TotalWeight\": 27,\r\n            \"WeightUnit\": \"KG\"\r\n        },\r\n        {\r\n            \"CustomerOrderId\": \"TTR_5429\",\r\n            \"OriginAddress\": \"Amsterdam\",\r\n            \"DestinationAddress\": \"İstanbul\",\r\n            \"MaterialId\": \"GMMK_PRO\",\r\n            \"MaterialName\": \"Klavye\",\r\n            \"Note\": \"Kırılma riski\",\r\n            \"MaterialQuantity\": 10,\r\n            \"QuantityUnit\": \"Birim\",\r\n            \"TotalWeight\": 1700,\r\n            \"WeightUnit\": \"G\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44322/api/Order/AddOrders",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Order",
+								"AddOrders"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Jul 2022 11:32:43 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"failedAdditions\": [\n        {\n            \"customerOrderId\": \"AEK_999\",\n            \"errorDescription\": \"Girilen müşteri sipariş numarası daha önceden kullanılmış.\",\n            \"orderId\": null\n        }\n    ],\n    \"succeededAdditions\": [\n        {\n            \"customerOrderId\": \"YGZ_525\",\n            \"errorDescription\": null,\n            \"orderId\": 0\n        },\n        {\n            \"customerOrderId\": \"TTR_5429\",\n            \"errorDescription\": null,\n            \"orderId\": 0\n        }\n    ],\n    \"errorDescription\": null,\n    \"resultStatusCode\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "GetAllOrderStatuses",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "SuccessfulExample",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Order/GetAllOrderStatuses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Order",
+								"GetAllOrderStatuses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Jul 2022 03:00:56 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"orderStatuses\": [\n        {\n            \"orderStatusId\": 1,\n            \"orderStatusName\": \"Sipariş Alındı\"\n        },\n        {\n            \"orderStatusId\": 2,\n            \"orderStatusName\": \"Yola Çıktı\"\n        },\n        {\n            \"orderStatusId\": 3,\n            \"orderStatusName\": \"Dağıtım Merkezinde\"\n        },\n        {\n            \"orderStatusId\": 4,\n            \"orderStatusName\": \"Dağıtıma Çıktı\"\n        },\n        {\n            \"orderStatusId\": 5,\n            \"orderStatusName\": \"Teslim Edildi\"\n        },\n        {\n            \"orderStatusId\": 6,\n            \"orderStatusName\": \"Teslim Edilemedi\"\n        }\n    ],\n    \"errorDescription\": null,\n    \"resultStatusCode\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "GetAllOrders",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "SuccessfulExample",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Order/GetAllOrders",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Order",
+								"GetAllOrders"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Jul 2022 03:09:26 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"orders\": [\n        {\n            \"customerOrderId\": \"AEK_999\",\n            \"destinationAddress\": \"Eskişehir\",\n            \"materialId\": \"GFL_404\",\n            \"materialName\": \"Mekanik\",\n            \"materialQuantity\": 4,\n            \"note\": \"Dikkatli taşınmalı.\",\n            \"orderStatus\": \"Sipariş Alındı\",\n            \"originAddress\": \"İstanbul\",\n            \"quantityUnit\": \"Birim\",\n            \"totalWeight\": 27,\n            \"weightUnit\": \"KG\"\n        }\n    ],\n    \"errorDescription\": null,\n    \"resultStatusCode\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "GetOrderStatus",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "SuccessfulExample",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CustomerOrderId\" : \"AEK_999\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44322/api/Order/GetOrderStatus",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Order",
+								"GetOrderStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Jul 2022 03:14:14 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"customerOrderId\": \"AEK_999\",\n    \"orderStatusId\": 1,\n    \"errorDescription\": null,\n    \"resultStatusCode\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "UpdateOrder",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "SuccessfulExample",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CustomerOrderId\": \"AEK_999\",\r\n    \"OrderStatusId\": 2,\r\n    \"UpdateDate\": \"{{CurrentDateTime}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44322/api/Order/UpdateOrder",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Order",
+								"UpdateOrder"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Jul 2022 03:24:39 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errorDescription\": null,\n    \"resultStatusCode\": 0\n}"
+				}
+			]
+		}
+	]
+}

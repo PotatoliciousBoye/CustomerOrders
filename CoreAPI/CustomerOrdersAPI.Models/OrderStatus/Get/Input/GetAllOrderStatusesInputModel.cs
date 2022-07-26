@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CustomerOrdersAPI.Models.OrderStatus.Get.Input
+﻿namespace CustomerOrdersAPI.Models.OrderStatus.Get.Input
 {
+    /// <summary>
+    /// Defines the <see cref="GetAllOrderStatusesInputModel" />.
+    /// </summary>
     public class GetAllOrderStatusesInputModel
     {
     }
