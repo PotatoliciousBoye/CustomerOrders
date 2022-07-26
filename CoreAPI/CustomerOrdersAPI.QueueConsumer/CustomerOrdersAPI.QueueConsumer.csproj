@@ -1,15 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\CustomerOrdersAPI.EntityFramework\CustomerOrdersAPI.EntityFramework.csproj" />
+    <ProjectReference Include="..\CustomerOrdersAPI.Library\CustomerOrdersAPI.Library.csproj" />
     <ProjectReference Include="..\CustomerOrdersAPI.Models\CustomerOrdersAPI.Models.csproj" />
   </ItemGroup>
 

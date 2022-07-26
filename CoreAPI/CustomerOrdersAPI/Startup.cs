@@ -1,5 +1,6 @@
 using CustomerOrdersAPI.EntityFramework;
 using CustomerOrdersAPI.Library.Order;
+using CustomerOrdersAPI.Library.Queue;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -75,6 +76,7 @@ namespace CustomerOrdersAPI
             services.AddDbContextPool<CustomerOrdersDbContext>(options => options.UseSqlServer(sqlConnectionStr));
 
             services.AddScoped<IOrderLibrary, OrderLibrary>();
+            services.AddScoped<IOrderQueueLibrary, OrderQueueLibrary>();
 
             services.AddControllers();
         }

@@ -1,5 +1,7 @@
 ﻿using CustomerOrdersAPI.EntityFramework;
 using CustomerOrdersAPI.Library.Order;
+using CustomerOrdersAPI.Library.Queue;
+using CustomerOrdersAPI.Models.Base.Request;
 using CustomerOrdersAPI.Models.Order.Add.Input;
 using CustomerOrdersAPI.Models.Order.Add.Output;
 using CustomerOrdersAPI.Models.Order.Get.Input;
@@ -31,6 +33,8 @@ namespace CustomerOrdersAPI.Controllers
         /// </summary>
         private IOrderLibrary orderLibrary;
 
+        private IOrderQueueLibrary orderQueueLibrary;
+
         #endregion
 
         #region Constructors
@@ -40,10 +44,11 @@ namespace CustomerOrdersAPI.Controllers
         /// </summary>
         /// <param name="customerOrdersDbContext">The customerOrdersDbContext<see cref="CustomerOrdersDbContext"/>.</param>
         /// <param name="orderLibrary">The orderLibrary<see cref="IOrderLibrary"/>.</param>
-        public OrderController(CustomerOrdersDbContext customerOrdersDbContext, IOrderLibrary orderLibrary)
+        public OrderController(CustomerOrdersDbContext customerOrdersDbContext, IOrderLibrary orderLibrary, IOrderQueueLibrary orderQueueLibrary)
         {
             this.customerOrdersDbContext = customerOrdersDbContext;
             this.orderLibrary = orderLibrary;
+            this.orderQueueLibrary = orderQueueLibrary;
         }
 
         #endregion
@@ -67,9 +72,9 @@ namespace CustomerOrdersAPI.Controllers
         /// <param name="addOrderInput">The addOrderInput<see cref="AddOrderInputModel"/>.</param>
         /// <returns>The <see cref="AddOrderOutputModel"/>.</returns>
         [HttpPost("AddOrdersAsync")]
-        public AddOrderOutputModel AddOrdersAsync(AddOrderInputModel addOrderInput)
+        public ServiceRequestBaseModel AddOrdersAsync(AddOrderInputModel addOrderInput)
         {
-            return new AddOrderOutputModel();
+            return orderQueueLibrary.PublishAddOrdersToQueue(addOrderInput);
         }
 
         /// <summary>
@@ -122,9 +127,9 @@ namespace CustomerOrdersAPI.Controllers
         /// <param name="updateOrderInput">The updateOrderInput<see cref="UpdateOrderInputModel"/>.</param>
         /// <returns>The <see cref="UpdateOrderOutputModel"/>.</returns>
         [HttpPost("UpdateOrderAsync")]
-        public UpdateOrderOutputModel UpdateOrderAsync(UpdateOrderInputModel updateOrderInput)
+        public ServiceRequestBaseModel UpdateOrderAsync(UpdateOrderInputModel updateOrderInput)
         {
-            return new UpdateOrderOutputModel();
+            return orderQueueLibrary.PublishUpdateOrderToQueue(updateOrderInput);
         }
 
         #endregion
