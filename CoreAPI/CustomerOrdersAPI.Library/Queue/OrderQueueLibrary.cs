@@ -14,6 +14,12 @@ namespace CustomerOrdersAPI.Library.Queue
     {
         #region Methods
 
+        private const string RABBITMQ_HOSTNAME = "localhost";
+
+        private const string ADD_ORDERS_QUEUE_NAME = "AddOrdersQueue";
+
+        private const string UPDATE_ORDER_QUEUE_NAME = "UpdateOrderQueue";
+
         /// <summary>
         /// The PublishAddOrdersToQueue.
         /// </summary>
@@ -21,11 +27,11 @@ namespace CustomerOrdersAPI.Library.Queue
         /// <returns>The <see cref="ServiceRequestBaseModel"/>.</returns>
         public ServiceRequestBaseModel PublishAddOrdersToQueue(AddOrderInputModel addOrderInputModel)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            var factory = new ConnectionFactory() { HostName = RABBITMQ_HOSTNAME };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "AddOrdersQueue",
+                channel.QueueDeclare(queue: ADD_ORDERS_QUEUE_NAME,
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
@@ -33,8 +39,8 @@ namespace CustomerOrdersAPI.Library.Queue
 
                 var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(addOrderInputModel));
 
-                channel.BasicPublish(exchange: "",
-                                     routingKey: "AddOrdersQueue",
+                channel.BasicPublish(exchange: string.Empty,
+                                     routingKey: ADD_ORDERS_QUEUE_NAME,
                                      basicProperties: null,
                                      body: body);
             }
@@ -49,11 +55,11 @@ namespace CustomerOrdersAPI.Library.Queue
         /// <returns>The <see cref="ServiceRequestBaseModel"/>.</returns>
         public ServiceRequestBaseModel PublishUpdateOrderToQueue(UpdateOrderInputModel updateOrderInputModel)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            var factory = new ConnectionFactory() { HostName = RABBITMQ_HOSTNAME};
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "UpdateOrderQueue",
+                channel.QueueDeclare(queue: UPDATE_ORDER_QUEUE_NAME,
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
@@ -61,8 +67,8 @@ namespace CustomerOrdersAPI.Library.Queue
 
                 var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(updateOrderInputModel));
 
-                channel.BasicPublish(exchange: "",
-                                     routingKey: "UpdateOrderQueue",
+                channel.BasicPublish(exchange: string.Empty,
+                                     routingKey: UPDATE_ORDER_QUEUE_NAME,
                                      basicProperties: null,
                                      body: body);
             }

@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CustomerOrdersAPI.Library\CustomerOrdersAPI.Library.csproj" />
     <ProjectReference Include="..\CustomerOrdersAPI.Models\CustomerOrdersAPI.Models.csproj" />
+    <ProjectReference Include="..\CustomerOrdersAPI\CustomerOrdersAPI.csproj" />
   </ItemGroup>
 
 </Project>

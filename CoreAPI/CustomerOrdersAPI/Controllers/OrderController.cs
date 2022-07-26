@@ -67,7 +67,14 @@ namespace CustomerOrdersAPI.Controllers
         [HttpPost("AddOrders")]
         public AddOrderOutputModel AddOrders(AddOrderInputModel addOrderInput)
         {
-            return orderLibrary.AddOrders(addOrderInput);
+            try
+            {
+                return orderLibrary.AddOrders(addOrderInput);
+            }
+            catch (System.Exception ex)
+            {
+                return new AddOrderOutputModel() { ResultStatusCode = 1, ErrorDescription = ex.Message };
+            }
         }
 
         /// <summary>
@@ -78,7 +85,15 @@ namespace CustomerOrdersAPI.Controllers
         [HttpPost("AddOrdersAsync")]
         public ServiceRequestBaseModel AddOrdersAsync(AddOrderInputModel addOrderInput)
         {
-            return orderQueueLibrary.PublishAddOrdersToQueue(addOrderInput);
+            try
+            {
+                return orderQueueLibrary.PublishAddOrdersToQueue(addOrderInput);
+            }
+            catch (System.Exception ex)
+            {
+
+                return new ServiceRequestBaseModel() { ResultStatusCode = 1, ErrorDescription = ex.Message };
+            }
         }
 
         /// <summary>
@@ -89,7 +104,14 @@ namespace CustomerOrdersAPI.Controllers
         [HttpGet("GetAllOrders")]
         public GetAllOrdersOutputModel GetAllOrders([FromForm] GetAllOrdersInputModel getAllOrdersInput)
         {
-            return orderLibrary.GetAllOrders(getAllOrdersInput);
+            try
+            {
+                return orderLibrary.GetAllOrders(getAllOrdersInput);
+            }
+            catch (System.Exception ex)
+            {
+                return new GetAllOrdersOutputModel() { ResultStatusCode = 1, ErrorDescription = ex.Message };
+            }
         }
 
         /// <summary>
@@ -100,7 +122,15 @@ namespace CustomerOrdersAPI.Controllers
         [HttpGet("GetAllOrderStatuses")]
         public GetAllOrderStatusesOutputModel GetAllOrderStatuses([FromForm] GetAllOrderStatusesInputModel getAllOrderStatusesInputModel)
         {
-            return orderLibrary.GetAllOrderStatuses(getAllOrderStatusesInputModel);
+            try
+            {
+                return orderLibrary.GetAllOrderStatuses(getAllOrderStatusesInputModel);
+            }
+            catch (System.Exception ex)
+            {
+
+                return new GetAllOrderStatusesOutputModel() { ResultStatusCode = 1, ErrorDescription = ex.Message };
+            }
         }
 
         /// <summary>
@@ -111,7 +141,16 @@ namespace CustomerOrdersAPI.Controllers
         [HttpPost("GetOrderStatus")]
         public GetOrderStatusOutputModel GetOrderStatus(GetOrderStatusInputModel getOrderStatusInput)
         {
-            return orderLibrary.GetOrderStatus(getOrderStatusInput);
+            try
+            {
+                return orderLibrary.GetOrderStatus(getOrderStatusInput);
+
+            }
+            catch (System.Exception ex)
+            {
+
+                return new GetOrderStatusOutputModel() { ResultStatusCode = 1, ErrorDescription = ex.Message };
+            }
         }
 
         /// <summary>
@@ -122,7 +161,16 @@ namespace CustomerOrdersAPI.Controllers
         [HttpPost("UpdateOrder")]
         public UpdateOrderOutputModel UpdateOrder(UpdateOrderInputModel updateOrderInput)
         {
-            return orderLibrary.UpdateOrder(updateOrderInput);
+            try
+            {
+
+                return orderLibrary.UpdateOrder(updateOrderInput);
+            }
+            catch (System.Exception ex)
+            {
+
+                return new UpdateOrderOutputModel() { ResultStatusCode = 1, ErrorDescription = ex.Message };
+            }
         }
 
         /// <summary>
@@ -133,7 +181,16 @@ namespace CustomerOrdersAPI.Controllers
         [HttpPost("UpdateOrderAsync")]
         public ServiceRequestBaseModel UpdateOrderAsync(UpdateOrderInputModel updateOrderInput)
         {
-            return orderQueueLibrary.PublishUpdateOrderToQueue(updateOrderInput);
+            try
+            {
+                return orderQueueLibrary.PublishUpdateOrderToQueue(updateOrderInput);
+
+            }
+            catch (System.Exception ex)
+            {
+
+                return new ServiceRequestBaseModel() { ResultStatusCode = 1, ErrorDescription = ex.Message };
+            }
         }
 
         #endregion
