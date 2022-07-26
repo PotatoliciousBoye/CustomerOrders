@@ -83,7 +83,7 @@ namespace CustomerOrdersAPI.Controllers
         /// <param name="getAllOrdersInput">The getAllOrdersInput<see cref="GetAllOrdersInputModel"/>.</param>
         /// <returns>The <see cref="GetAllOrdersOutputModel"/>.</returns>
         [HttpGet("GetAllOrders")]
-        public GetAllOrdersOutputModel GetAllOrders(GetAllOrdersInputModel getAllOrdersInput)
+        public GetAllOrdersOutputModel GetAllOrders([FromForm]GetAllOrdersInputModel getAllOrdersInput)
         {
             return orderLibrary.GetAllOrders(getAllOrdersInput);
         }
@@ -94,7 +94,7 @@ namespace CustomerOrdersAPI.Controllers
         /// <param name="getAllOrderStatusesInputModel">The getAllOrderStatusesInputModel<see cref="GetAllOrderStatusesInputModel"/>.</param>
         /// <returns>The <see cref="GetAllOrderStatusesOutputModel"/>.</returns>
         [HttpGet("GetAllOrderStatuses")]
-        public GetAllOrderStatusesOutputModel GetAllOrderStatuses(GetAllOrderStatusesInputModel getAllOrderStatusesInputModel)
+        public GetAllOrderStatusesOutputModel GetAllOrderStatuses([FromForm]GetAllOrderStatusesInputModel getAllOrderStatusesInputModel)
         {
             return orderLibrary.GetAllOrderStatuses(getAllOrderStatusesInputModel);
         }
@@ -104,7 +104,7 @@ namespace CustomerOrdersAPI.Controllers
         /// </summary>
         /// <param name="getOrderStatusInput">The getOrderStatusInput<see cref="GetOrderStatusInputModel"/>.</param>
         /// <returns>The <see cref="GetOrderStatusOutputModel"/>.</returns>
-        [HttpGet("GetOrderStatus")]
+        [HttpPost("GetOrderStatus")]
         public GetOrderStatusOutputModel GetOrderStatus(GetOrderStatusInputModel getOrderStatusInput)
         {
             return orderLibrary.GetOrderStatus(getOrderStatusInput);

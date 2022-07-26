@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html ng-app="customerOrderApp">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body ng-controller="orderController as app">
+<table border = 1>
+    <tr>
+        <td>
+            Seçiniz
+        </td>
+        <td>
+            Müşteri Sipariş No
+        </td>
+        <td>
+            Çıkış Adresi
+        </td>
+        <td>
+            Varış Adresi
+        </td>
+        <td>
+            Miktar
+        </td>
+        <td>
+            Miktar Birim
+        </td>
+        <td>
+            Ağırlık
+        </td>
+        <td>
+            Ağırlık Birim
+        </td>
+        <td>
+            Malzeme Kodu
+        </td>
+        <td>
+            Not
+        </td>
+        <td>
+            Statü
+        </td>
+    </tr>
+    <tr ng-repeat = "order in app.customerOrders">
+        <td>
+            <label class="checkbox checkbox--list-item" >
+                <input type="radio" ng-bind="area.name"  ng-model="app.selectedValue" name="area" value="{{order.customerOrderId}}">
+
+            </label>
+        </td>
+        <td>
+            {{order.customerOrderId}}
+        </td>
+        <td>
+            {{order.originAddress}}
+        </td>
+        <td>
+            {{order.destinationAddress}}
+        </td>
+        <td>
+            {{order.materialQuantity}}
+        </td>
+        <td>
+            {{order.quantityUnit}}
+        </td>
+        <td>
+            {{order.totalWeight}}
+        </td>
+        <td>
+            {{order.weightUnit}}
+        </td>
+        <td>
+            {{order.materialId}}
+        </td>
+        <td>
+            {{order.note}}
+        </td>
+        <td>
+            {{order.orderStatus}}
+        </td>
+    </tr>
+</table>
+
+<div ng-hide = "!app.customerOrderStatus" style="border: 1px;width: 400px;height: 200px;border-style: double;padding-left: 20px;">
+Sipariş Düzenleme
+<br/>
+Müşteri Sipariş No : {{app.customerOrderStatus.customerOrderId}}
+<br/>
+Statü : <select ng-model="app.selectedStatus">
+    <option ng-repeat="orderStatus in app.orderStatuses" ng-selected = "{{orderStatus.orderStatusId == app.selectedStatus}}" value="{{orderStatus.orderStatusId}}">{{orderStatus.orderStatusName}}</option>
+    </select>
+    <br/>
+    <button ng-disabled="!app.selectedStatus" ng-click="app.updateOrderStatus(app.selectedStatus, app.customerOrderStatus.customerOrderId)">Siparişi güncelle</button>
+</div>
+
+  
+  <button ng-disabled="!app.selectedValue" ng-hide="app.customerOrderStatus" ng-click="app.submitAnswer(app.selectedValue)">Sipariş durumu güncelle</button>
+
+  <script>
+    var app = angular.module('customerOrderApp',[]);
+
+app.controller('orderController', function($http){
+  var app=this;
+  app.AreaList = [{
+    name: 'First Area',
+    code: '123'
+  },{
+    name: 'Second Area',
+    code: '456'
+  }];
+  
+  app.submitAnswer = function(selectedArea){
+    $http({
+   url: "https://localhost:44322/api/Order/GetOrderStatus", 
+   method: "POST",
+   data: {customerOrderId : selectedArea}
+ }).then(function(response) {
+    app.customerOrderStatus = response.data;
+    app.selectedStatus = response.data.orderStatusId;
+  });
+  $http.get("https://localhost:44322/api/Order/GetAllOrderStatuses")
+  .then(function(response) {
+    app.orderStatuses = response.data.orderStatuses;
+  })
+  };
+
+  app.updateOrderStatus = function(selectedStatus,customerOrderId){
+    console.log(selectedStatus)
+    console.log(customerOrderId)
+    console.log(new Date().toJSON())
+    $http({
+   url: "https://localhost:44322/api/Order/UpdateOrder", 
+   method: "POST",
+   data: {customerOrderId : customerOrderId, orderStatusId : parseInt(selectedStatus), updateDate : new Date().toJSON()}
+ }).then(function(response) {
+    app.customerOrderStatus = response.data;
+
+    $http.get("https://localhost:44322/api/Order/GetAllOrders")
+  .then(function(response) {
+    app.customerOrders = response.data.orders;
+    app.customerOrderStatus = null;
+  });
+  });
+  }
+
+  $http.get("https://localhost:44322/api/Order/GetAllOrders")
+  .then(function(response) {
+    app.customerOrders = response.data.orders;
+  })
+
+});
+  </script>
+
+</body>
+</html>

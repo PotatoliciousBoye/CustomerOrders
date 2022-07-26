@@ -52,6 +52,11 @@ namespace CustomerOrdersAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(x => x
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader()); // configure CORS
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
