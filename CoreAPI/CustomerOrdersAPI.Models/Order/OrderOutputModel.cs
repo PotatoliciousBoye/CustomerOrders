@@ -1,21 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CustomerOrdersAPI.Models.Order
+﻿namespace CustomerOrdersAPI.Models.Order
 {
+    /// <summary>
+    /// Defines the <see cref="OrderOutputModel" />.
+    /// </summary>
     public class OrderOutputModel
     {
+        #region Properties
+
         /// <summary>
         /// Gets or sets the CustomerOrderId.
         /// </summary>
         public string CustomerOrderId { get; set; }
 
         /// <summary>
+        /// Gets or sets the ErrorDescription.
+        /// </summary>
+        public string ErrorDescription { get; set; }
+
+        /// <summary>
         /// Gets or sets the OrderId.
         /// </summary>
         public int? OrderId { get; set; }
 
-        public string ErrorDescription { get; set; }
+        #endregion
     }
 }

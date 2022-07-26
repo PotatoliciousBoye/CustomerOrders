@@ -23,11 +23,14 @@
         public string MaterialId { get; set; }
 
         /// <summary>
+        /// Gets or sets the MaterialName.
+        /// </summary>
+        public string MaterialName { get; set; }
+
+        /// <summary>
         /// Gets or sets the MaterialQuantity.
         /// </summary>
         public int MaterialQuantity { get; set; }
-
-        public string MaterialName { get; set; }
 
         /// <summary>
         /// Gets or sets the Note.
@@ -35,7 +38,7 @@
         public string Note { get; set; }
 
         /// <summary>
-        /// Gets or sets the OrderStatusId.
+        /// Gets or sets the OrderStatus.
         /// </summary>
         public string OrderStatus { get; set; }
 

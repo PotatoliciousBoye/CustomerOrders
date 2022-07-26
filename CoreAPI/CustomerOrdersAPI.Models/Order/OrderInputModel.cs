@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CustomerOrdersAPI.Models.Order
+﻿namespace CustomerOrdersAPI.Models.Order
 {
+    /// <summary>
+    /// Defines the <see cref="OrderInputModel" />.
+    /// </summary>
     public class OrderInputModel
     {
         #region Properties

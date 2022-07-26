@@ -10,8 +10,15 @@ namespace CustomerOrdersAPI.Models.Order.Add.Output
     {
         #region Properties
 
-        public List<OrderOutputModel> SucceededAdditions { get; set; }
+        /// <summary>
+        /// Gets or sets the FailedAdditions.
+        /// </summary>
         public List<OrderOutputModel> FailedAdditions { get; set; }
+
+        /// <summary>
+        /// Gets or sets the SucceededAdditions.
+        /// </summary>
+        public List<OrderOutputModel> SucceededAdditions { get; set; }
 
         #endregion
     }
