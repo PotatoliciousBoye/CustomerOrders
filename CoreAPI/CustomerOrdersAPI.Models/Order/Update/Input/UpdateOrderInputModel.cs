@@ -17,7 +17,7 @@ namespace CustomerOrdersAPI.Models.Order.Update.Input
         /// <summary>
         /// Gets or sets the OrderStatus.
         /// </summary>
-        public int OrderStatus { get; set; }
+        public int OrderStatusId { get; set; }
 
         /// <summary>
         /// Gets or sets the UpdateDate.

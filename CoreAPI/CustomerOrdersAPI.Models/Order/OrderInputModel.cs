@@ -1,9 +1,10 @@
-﻿namespace CustomerOrdersAPI.Models.Order
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CustomerOrdersAPI.Models.Order
 {
-    /// <summary>
-    /// Defines the <see cref="OrderViewModel" />.
-    /// </summary>
-    public class OrderViewModel
+    public class OrderInputModel
     {
         #region Properties
 
@@ -23,21 +24,19 @@
         public string MaterialId { get; set; }
 
         /// <summary>
+        /// Gets or sets the MaterialName.
+        /// </summary>
+        public string MaterialName { get; set; }
+
+        /// <summary>
         /// Gets or sets the MaterialQuantity.
         /// </summary>
         public int MaterialQuantity { get; set; }
-
-        public string MaterialName { get; set; }
 
         /// <summary>
         /// Gets or sets the Note.
         /// </summary>
         public string Note { get; set; }
-
-        /// <summary>
-        /// Gets or sets the OrderStatusId.
-        /// </summary>
-        public string OrderStatus { get; set; }
 
         /// <summary>
         /// Gets or sets the OriginAddress.

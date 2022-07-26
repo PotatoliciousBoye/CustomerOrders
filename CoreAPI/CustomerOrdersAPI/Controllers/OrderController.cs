@@ -1,11 +1,14 @@
 ﻿using CustomerOrdersAPI.EntityFramework;
 using CustomerOrdersAPI.EntityFramework.Models;
+using CustomerOrdersAPI.Library.Order;
 using CustomerOrdersAPI.Models.Order.Add.Input;
 using CustomerOrdersAPI.Models.Order.Add.Output;
 using CustomerOrdersAPI.Models.Order.Get.Input;
 using CustomerOrdersAPI.Models.Order.Get.Output;
 using CustomerOrdersAPI.Models.Order.Update.Input;
 using CustomerOrdersAPI.Models.Order.Update.Output;
+using CustomerOrdersAPI.Models.OrderStatus.Get.Input;
+using CustomerOrdersAPI.Models.OrderStatus.Get.Output;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,40 +24,54 @@ namespace CustomerOrdersAPI.Controllers
 
         private CustomerOrdersDbContext customerOrdersDbContext;
 
-        public OrderController(CustomerOrdersDbContext customerOrdersDbContext)
+        private IOrderLibrary orderLibrary;
+
+        public OrderController(CustomerOrdersDbContext customerOrdersDbContext, IOrderLibrary orderLibrary)
         {
             this.customerOrdersDbContext = customerOrdersDbContext; 
+            this.orderLibrary = orderLibrary;
         }
 
-        [HttpGet]
-        public IList<OrderStatus> Get()
+        [HttpPost("AddOrders")]
+        public AddOrderOutputModel AddOrders(AddOrderInputModel addOrderInput)
         {
-            return (this.customerOrdersDbContext.OrderStatuses.ToList());
+            return orderLibrary.AddOrders(addOrderInput);
         }
 
-        public AddOrderOutputModel AddOrder(AddOrderInputModel addOrderInput)
+        [HttpPost("AddOrdersAsync")]
+        public AddOrderOutputModel AddOrdersAsync(AddOrderInputModel addOrderInput)
         {
             return new AddOrderOutputModel();
         }
-        public AddOrderOutputModel AddOrderAsync(AddOrderInputModel addOrderInput)
-        {
-            return new AddOrderOutputModel();
-        }
+
+        [HttpPost("UpdateOrder")]
         public UpdateOrderOutputModel UpdateOrder(UpdateOrderInputModel updateOrderInput)
         {
-            return new UpdateOrderOutputModel();
+            return orderLibrary.UpdateOrder(updateOrderInput);
         }
+
+        [HttpPost("UpdateOrderAsync")]
         public UpdateOrderOutputModel UpdateOrderAsync(UpdateOrderInputModel updateOrderInput)
         {
             return new UpdateOrderOutputModel();
         }
+
+        [HttpGet("GetOrderStatus")]
         public GetOrderStatusOutputModel GetOrderStatus(GetOrderStatusInputModel getOrderStatusInput)
         {
-            return new GetOrderStatusOutputModel();
+            return orderLibrary.GetOrderStatus(getOrderStatusInput);
         }
+
+        [HttpGet("GetAllOrders")]
         public GetAllOrdersOutputModel GetAllOrders(GetAllOrdersInputModel getAllOrdersInput)
         {
-            return new GetAllOrdersOutputModel();
+            return orderLibrary.GetAllOrders(getAllOrdersInput);
+        }
+
+        [HttpGet("GetAllOrderStatuses")]
+        public GetAllOrderStatusesOutputModel GetAllOrderStatuses(GetAllOrderStatusesInputModel getAllOrderStatusesInputModel)
+        {
+            return orderLibrary.GetAllOrderStatuses(getAllOrderStatusesInputModel);
         }
     }
 }

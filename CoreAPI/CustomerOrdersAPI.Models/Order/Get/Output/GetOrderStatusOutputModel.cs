@@ -17,7 +17,7 @@ namespace CustomerOrdersAPI.Models.Order.Get.Output
         /// <summary>
         /// Gets or sets the OrderStatus.
         /// </summary>
-        public int OrderStatus { get; set; }
+        public int OrderStatusId { get; set; }
 
         #endregion
     }

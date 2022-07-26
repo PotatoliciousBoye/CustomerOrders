@@ -13,7 +13,7 @@ namespace CustomerOrdersAPI.Models.Order.Get.Output
         /// <summary>
         /// Gets or sets the Orders.
         /// </summary>
-        internal List<OrderViewModel> Orders { get; set; }
+        public List<OrderViewModel> Orders { get; set; }
 
         #endregion
     }

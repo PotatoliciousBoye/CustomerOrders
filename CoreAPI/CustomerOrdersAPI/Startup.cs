@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using CustomerOrdersAPI.EntityFramework;
+using CustomerOrdersAPI.Library.Order;
 
 namespace CustomerOrdersAPI
 {
@@ -30,6 +31,8 @@ namespace CustomerOrdersAPI
 
             string sqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextPool<CustomerOrdersDbContext>(options => options.UseSqlServer(sqlConnectionStr));
+
+            services.AddScoped<IOrderLibrary, OrderLibrary>();
 
             services.AddControllers();
         }

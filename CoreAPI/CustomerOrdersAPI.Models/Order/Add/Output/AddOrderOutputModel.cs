@@ -1,4 +1,5 @@
 ﻿using CustomerOrdersAPI.Models.Base.Request;
+using System.Collections.Generic;
 
 namespace CustomerOrdersAPI.Models.Order.Add.Output
 {
@@ -9,15 +10,8 @@ namespace CustomerOrdersAPI.Models.Order.Add.Output
     {
         #region Properties
 
-        /// <summary>
-        /// Gets or sets the CustomerOrderId.
-        /// </summary>
-        public string CustomerOrderId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the OrderId.
-        /// </summary>
-        public int OrderId { get; set; }
+        public List<OrderOutputModel> SucceededAdditions { get; set; }
+        public List<OrderOutputModel> FailedAdditions { get; set; }
 
         #endregion
     }
